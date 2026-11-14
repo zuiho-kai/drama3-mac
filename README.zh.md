@@ -7,6 +7,8 @@
 </p>
 
 <p align="center">
+  <a href="#为什么用-drama3-mac">为什么</a> ·
+  <a href="#下载现成权重">下载</a> ·
   <a href="#性能">性能</a> ·
   <a href="#快速开始">快速开始</a> ·
   <a href="#按内存选配置">按内存选配置</a> ·
@@ -15,6 +17,37 @@
   <a href="#路线图">路线图</a> ·
   <a href="README.md">English</a>
 </p>
+
+## 为什么用 drama3-mac
+
+- **48 GB 的 Mac 就能跑。** 官方 Drama 3 要 48 GB 以上的 NVIDIA 显卡；四位版峰值只占 **29.5 GB** 统一内存。
+- **下载量少一半。** 权重 **25.5 GB**，不是 41 GB，而且已经转好——[直接从 Release 下](#下载现成权重)，不用自己转换。
+- **3.3 秒加载，2.2 倍实时。** M5 Max 上从本机 SSD 冷加载，实时率 0.45。
+- **声音不打折。** 对字率 0.974，和 8 位版一样；极端台词上，换四位对频谱的影响比换个随机种子还小。[自己听](#样音)。
+- **数字都是真跑的。** 冻结的测速工具加 InferRSI 循环：下面每个数都来自真实运行，每次尝试都记进账本。
+
+Built with Fish Audio.
+
+## 下载现成权重
+
+四位版挂在 Release [`v0.1.0-int4`](https://github.com/zuiho-kai/drama3-mac/releases/tag/v0.1.0-int4)，
+是一个 tar 切成的 1.9 GB 分片（GitHub 单个 Release 文件上限 2 GB）。合并时要约 55 GB 空闲，合完可删分片。
+
+```sh
+gh release download v0.1.0-int4 -R zuiho-kai/drama3-mac -D dl
+(cd dl && shasum -a 256 -c SHA256SUMS)
+mkdir -p harness/models && cat dl/drama3-mac-int4-g64.tar.part-* | tar -xf - -C harness/models
+# → harness/models/int4-g64（模型、codec-mlx/、LICENSE、NOTICE）
+```
+
+## 样音
+
+同一句台词、同一种子、同一参考音；专家 8 位对比专家 4 位。
+
+| 台词 | 8 位 | 4 位 |
+| --- | --- | --- |
+| 撒娇 `[撒娇，拖长尾音]` | [int8-coaxing.mp3](samples/int8-coaxing.mp3) | [int4-coaxing.mp3](samples/int4-coaxing.mp3) |
+| 委屈 `[委屈]` | [int8-hurt.mp3](samples/int8-hurt.mp3) | [int4-hurt.mp3](samples/int4-hurt.mp3) |
 
 ## 简介
 
@@ -68,7 +101,7 @@ git clone https://github.com/zuiho-kai/drama3-mac && cd drama3-mac
 scripts/setup.sh
 ```
 
-下载官方权重，转换一次（FP8 专家 → MLX，不需要 PyTorch）：
+用[现成的四位权重](#下载现成权重)，或下载官方权重，转换一次（FP8 专家 → MLX，不需要 PyTorch）：
 
 ```sh
 .venv/bin/hf download fishaudio/drama-3 --local-dir raw/drama-3
@@ -165,5 +198,6 @@ drama3-mac 是 [**InferRSI**](https://github.com/InferMatrixLab/InferRSI) 的示
 
 这里的测速工具和脚本用 MIT 许可，见 [LICENSE](LICENSE)。Drama 3 的 MLX 移植、转换器和合成脚本来自
 [mlx-speech](https://github.com/appautomaton/mlx-speech)（MIT），见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
-仓库不含模型权重：Drama 3 由 Fish Audio 以 Fish Audio Community License 发布，请到
-[fishaudio/drama-3](https://huggingface.co/fishaudio/drama-3) 获取。
+git 仓库里不放模型权重。Release 里的四位权重是 Fish Audio Drama 3 的衍生作品，按 Fish Audio Community
+License v1.0 分发（许可证和 NOTICE 在文件夹里，NOTICE 写明了怎么改的）。Built with Fish Audio。原版权重：
+[fishaudio/drama-3](https://huggingface.co/fishaudio/drama-3)。

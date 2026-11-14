@@ -9,3 +9,4 @@ harness/cands/
 __pycache__/
 *.wav
 *.mp3
+!samples/*.mp3

@@ -7,6 +7,8 @@
 </p>
 
 <p align="center">
+  <a href="#why-drama3-mac">Why</a> ·
+  <a href="#download-prebuilt-weights">Download</a> ·
   <a href="#performance">Performance</a> ·
   <a href="#quickstart">Quickstart</a> ·
   <a href="#pick-a-config-for-your-mac">Pick by Memory</a> ·
@@ -15,6 +17,37 @@
   <a href="#roadmap">Roadmap</a> ·
   <a href="README.zh.md">中文</a>
 </p>
+
+## Why drama3-mac
+
+- **Fits a 48 GB Mac.** Upstream Drama 3 wants a 48 GB+ NVIDIA GPU; the 4-bit build peaks at **29.5 GB** of unified memory.
+- **Half the download.** **25.5 GB** of weights instead of 41 GB, prebuilt — [download it from the release](#download-prebuilt-weights) and skip the conversion.
+- **Loads in 3.3 s, speaks 2.2× real time.** Cold from the internal SSD on an M5 Max, RTF 0.45.
+- **Same voice.** Char accuracy 0.974, identical to the 8-bit build; on the stress set 4-bit moves the spectrum less than re-rolling the seed. [Listen yourself](#samples).
+- **Measured, not guessed.** A frozen harness and an InferRSI loop: every number below is a real run, every attempt is booked in a ledger.
+
+Built with Fish Audio.
+
+## Download Prebuilt Weights
+
+The 4-bit build is attached to release [`v0.1.0-int4`](https://github.com/zuiho-kai/drama3-mac/releases/tag/v0.1.0-int4)
+as 1.9 GB parts of one tar (GitHub caps a release file at 2 GB). Joining needs about 55 GB free; delete the parts afterwards.
+
+```sh
+gh release download v0.1.0-int4 -R zuiho-kai/drama3-mac -D dl
+(cd dl && shasum -a 256 -c SHA256SUMS)
+mkdir -p harness/models && cat dl/drama3-mac-int4-g64.tar.part-* | tar -xf - -C harness/models
+# → harness/models/int4-g64 (model, codec-mlx/, LICENSE, NOTICE)
+```
+
+## Samples
+
+Same line, seed and reference voice; 8-bit experts vs 4-bit experts.
+
+| Line | 8-bit | 4-bit |
+| --- | --- | --- |
+| Coaxing `[撒娇，拖长尾音]` | [int8-coaxing.mp3](samples/int8-coaxing.mp3) | [int4-coaxing.mp3](samples/int4-coaxing.mp3) |
+| Hurt `[委屈]` | [int8-hurt.mp3](samples/int8-hurt.mp3) | [int4-hurt.mp3](samples/int4-hurt.mp3) |
 
 ## About
 
@@ -75,7 +108,7 @@ git clone https://github.com/zuiho-kai/drama3-mac && cd drama3-mac
 scripts/setup.sh
 ```
 
-Download the release and convert it once (FP8 experts → MLX; nothing needs PyTorch):
+Use the [prebuilt 4-bit weights](#download-prebuilt-weights), or download the official release and convert it once (FP8 experts → MLX; nothing needs PyTorch):
 
 ```sh
 .venv/bin/hf download fishaudio/drama-3 --local-dir raw/drama-3
@@ -185,6 +218,7 @@ against a frozen baseline, keep it only if it clears the gate.
 
 The harness and scripts here are MIT — see [LICENSE](LICENSE). The Drama 3 MLX port, converter and
 generate script come from [mlx-speech](https://github.com/appautomaton/mlx-speech) (MIT); see
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Model weights are not included: Drama 3 is
-released by Fish Audio under the Fish Audio Community License — get it from
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Model weights are not in the git tree. The prebuilt 4-bit weights in the release are a Derivative Work of
+Fish Audio Drama 3, distributed under the Fish Audio Community License v1.0 (copy and NOTICE inside the
+folder; the NOTICE says how they were modified). Built with Fish Audio. Original weights:
 [fishaudio/drama-3](https://huggingface.co/fishaudio/drama-3).
