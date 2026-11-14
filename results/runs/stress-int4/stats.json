@@ -1,0 +1,202 @@
+{
+ "id": "stress-int4",
+ "build": "int4",
+ "knobs": {
+  "warmup": true,
+  "wired_limit_gb": 56
+ },
+ "src": "src-base/mlx_speech/__init__.py",
+ "load_s": 0.9,
+ "after_load_active_gb": 25.49,
+ "rss_after_load_gb": 25.77,
+ "lines": [
+  {
+   "name": "长句",
+   "seed": 1234,
+   "audio_s": 31.35,
+   "gen_s": 13.9,
+   "frames_s": 12.814,
+   "codec_s": 1.062,
+   "rtf": 0.443,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.81
+  },
+  {
+   "name": "快速连读",
+   "seed": 1234,
+   "audio_s": 8.08,
+   "gen_s": 3.67,
+   "frames_s": 3.352,
+   "codec_s": 0.298,
+   "rtf": 0.454,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.81
+  },
+  {
+   "name": "耳语",
+   "seed": 1234,
+   "audio_s": 7.94,
+   "gen_s": 3.468,
+   "frames_s": 3.143,
+   "codec_s": 0.309,
+   "rtf": 0.437,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.81
+  },
+  {
+   "name": "尖叫",
+   "seed": 1234,
+   "audio_s": 6.08,
+   "gen_s": 2.716,
+   "frames_s": 2.442,
+   "codec_s": 0.259,
+   "rtf": 0.447,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.81
+  },
+  {
+   "name": "哭腔",
+   "seed": 1234,
+   "audio_s": 8.54,
+   "gen_s": 3.805,
+   "frames_s": 3.452,
+   "codec_s": 0.34,
+   "rtf": 0.445,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.81
+  },
+  {
+   "name": "中英夹杂",
+   "seed": 1234,
+   "audio_s": 9.85,
+   "gen_s": 4.334,
+   "frames_s": 3.955,
+   "codec_s": 0.361,
+   "rtf": 0.44,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.81
+  },
+  {
+   "name": "数字生僻字",
+   "seed": 1234,
+   "audio_s": 15.23,
+   "gen_s": 6.575,
+   "frames_s": 6.058,
+   "codec_s": 0.5,
+   "rtf": 0.432,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.81
+  },
+  {
+   "name": "长停顿",
+   "seed": 1234,
+   "audio_s": 7.99,
+   "gen_s": 3.529,
+   "frames_s": 3.199,
+   "codec_s": 0.314,
+   "rtf": 0.442,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.81
+  },
+  {
+   "name": "长句",
+   "seed": 5678,
+   "audio_s": 31.63,
+   "gen_s": 14.152,
+   "frames_s": 13.073,
+   "codec_s": 1.044,
+   "rtf": 0.447,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.82
+  },
+  {
+   "name": "快速连读",
+   "seed": 5678,
+   "audio_s": 8.54,
+   "gen_s": 4.036,
+   "frames_s": 3.7,
+   "codec_s": 0.319,
+   "rtf": 0.472,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.82
+  },
+  {
+   "name": "耳语",
+   "seed": 5678,
+   "audio_s": 7.8,
+   "gen_s": 3.43,
+   "frames_s": 3.109,
+   "codec_s": 0.302,
+   "rtf": 0.44,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.82
+  },
+  {
+   "name": "尖叫",
+   "seed": 5678,
+   "audio_s": 6.13,
+   "gen_s": 2.728,
+   "frames_s": 2.459,
+   "codec_s": 0.252,
+   "rtf": 0.445,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.82
+  },
+  {
+   "name": "哭腔",
+   "seed": 5678,
+   "audio_s": 8.64,
+   "gen_s": 3.885,
+   "frames_s": 3.502,
+   "codec_s": 0.366,
+   "rtf": 0.45,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.82
+  },
+  {
+   "name": "中英夹杂",
+   "seed": 5678,
+   "audio_s": 10.03,
+   "gen_s": 4.424,
+   "frames_s": 4.043,
+   "codec_s": 0.363,
+   "rtf": 0.441,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.82
+  },
+  {
+   "name": "数字生僻字",
+   "seed": 5678,
+   "audio_s": 15.0,
+   "gen_s": 6.604,
+   "frames_s": 6.097,
+   "codec_s": 0.493,
+   "rtf": 0.44,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.83
+  },
+  {
+   "name": "长停顿",
+   "seed": 5678,
+   "audio_s": 8.73,
+   "gen_s": 3.849,
+   "frames_s": 3.499,
+   "codec_s": 0.336,
+   "rtf": 0.441,
+   "mlx_peak_gb": 29.42,
+   "rss_peak_gb": 25.83
+  }
+ ],
+ "ref_s": 0.16,
+ "warmup_s": 0.63,
+ "summary": {
+  "load_s": 0.9,
+  "peak_gb": 29.42,
+  "rss_peak_gb": 25.83,
+  "first_line_s": 13.9,
+  "warm_rtf": 0.4444,
+  "warm_gen_s_mean": 4.747,
+  "frames_share": 0.915,
+  "codec_share": 0.081
+ }
+}

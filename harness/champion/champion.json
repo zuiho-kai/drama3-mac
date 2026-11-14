@@ -1,0 +1,21 @@
+{
+ "id": "r11141452-3",
+ "build": "int8",
+ "knobs": {
+  "warmup": true,
+  "wired_limit_gb": 56
+ },
+ "src": "src-base",
+ "run_dir": "runs/r11141452-3",
+ "summary": {
+  "load_s": 390.8,
+  "peak_gb": 42.47,
+  "rss_peak_gb": 40.79,
+  "first_line_s": 2.607,
+  "warm_rtf": 0.4632,
+  "warm_gen_s_mean": 2.319,
+  "frames_share": 0.901,
+  "codec_share": 0.093
+ },
+ "promoted_at": "2026-11-14T15:17:38"
+}

@@ -1,0 +1,157 @@
+{
+ "id": "r11141452-2",
+ "build": "int8",
+ "knobs": {
+  "warmup": true
+ },
+ "src": "src-base/mlx_speech/__init__.py",
+ "load_s": 397.6,
+ "after_load_active_gb": 40.49,
+ "rss_after_load_gb": 40.77,
+ "lines": [
+  {
+   "name": "撒娇",
+   "seed": 1234,
+   "audio_s": 5.76,
+   "gen_s": 2.65,
+   "frames_s": 2.384,
+   "codec_s": 0.251,
+   "rtf": 0.46,
+   "mlx_peak_gb": 44.37,
+   "rss_peak_gb": 40.79
+  },
+  {
+   "name": "傲娇",
+   "seed": 1234,
+   "audio_s": 4.64,
+   "gen_s": 2.245,
+   "frames_s": 1.934,
+   "codec_s": 0.227,
+   "rtf": 0.483,
+   "mlx_peak_gb": 44.37,
+   "rss_peak_gb": 40.79
+  },
+  {
+   "name": "委屈",
+   "seed": 1234,
+   "audio_s": 4.23,
+   "gen_s": 2.03,
+   "frames_s": 1.774,
+   "codec_s": 0.196,
+   "rtf": 0.48,
+   "mlx_peak_gb": 44.37,
+   "rss_peak_gb": 40.79
+  },
+  {
+   "name": "播报",
+   "seed": 1234,
+   "audio_s": 6.41,
+   "gen_s": 2.992,
+   "frames_s": 2.63,
+   "codec_s": 0.307,
+   "rtf": 0.467,
+   "mlx_peak_gb": 44.41,
+   "rss_peak_gb": 40.8
+  },
+  {
+   "name": "说明",
+   "seed": 1234,
+   "audio_s": 4.78,
+   "gen_s": 2.273,
+   "frames_s": 1.981,
+   "codec_s": 0.212,
+   "rtf": 0.475,
+   "mlx_peak_gb": 44.41,
+   "rss_peak_gb": 40.8
+  },
+  {
+   "name": "问候",
+   "seed": 1234,
+   "audio_s": 4.41,
+   "gen_s": 2.086,
+   "frames_s": 1.823,
+   "codec_s": 0.202,
+   "rtf": 0.473,
+   "mlx_peak_gb": 44.41,
+   "rss_peak_gb": 40.8
+  },
+  {
+   "name": "撒娇",
+   "seed": 5678,
+   "audio_s": 5.57,
+   "gen_s": 2.616,
+   "frames_s": 2.31,
+   "codec_s": 0.243,
+   "rtf": 0.469,
+   "mlx_peak_gb": 44.41,
+   "rss_peak_gb": 40.8
+  },
+  {
+   "name": "傲娇",
+   "seed": 5678,
+   "audio_s": 4.83,
+   "gen_s": 2.295,
+   "frames_s": 2.003,
+   "codec_s": 0.219,
+   "rtf": 0.475,
+   "mlx_peak_gb": 44.41,
+   "rss_peak_gb": 40.8
+  },
+  {
+   "name": "委屈",
+   "seed": 5678,
+   "audio_s": 4.32,
+   "gen_s": 2.075,
+   "frames_s": 1.811,
+   "codec_s": 0.198,
+   "rtf": 0.48,
+   "mlx_peak_gb": 44.41,
+   "rss_peak_gb": 40.8
+  },
+  {
+   "name": "播报",
+   "seed": 5678,
+   "audio_s": 6.41,
+   "gen_s": 2.992,
+   "frames_s": 2.655,
+   "codec_s": 0.279,
+   "rtf": 0.467,
+   "mlx_peak_gb": 44.41,
+   "rss_peak_gb": 40.8
+  },
+  {
+   "name": "说明",
+   "seed": 5678,
+   "audio_s": 4.83,
+   "gen_s": 2.307,
+   "frames_s": 2.005,
+   "codec_s": 0.221,
+   "rtf": 0.478,
+   "mlx_peak_gb": 44.41,
+   "rss_peak_gb": 40.8
+  },
+  {
+   "name": "问候",
+   "seed": 5678,
+   "audio_s": 4.64,
+   "gen_s": 2.194,
+   "frames_s": 1.923,
+   "codec_s": 0.207,
+   "rtf": 0.472,
+   "mlx_peak_gb": 44.41,
+   "rss_peak_gb": 40.8
+  }
+ ],
+ "ref_s": 0.21,
+ "warmup_s": 1.08,
+ "summary": {
+  "load_s": 397.6,
+  "peak_gb": 44.41,
+  "rss_peak_gb": 40.8,
+  "first_line_s": 2.65,
+  "warm_rtf": 0.474,
+  "warm_gen_s_mean": 2.373,
+  "frames_share": 0.878,
+  "codec_share": 0.096
+ }
+}

@@ -1,0 +1,11 @@
+.venv/
+vendor/
+raw/
+harness/models/
+harness/refs/
+harness/src-base/
+harness/runs/
+harness/cands/
+__pycache__/
+*.wav
+*.mp3
