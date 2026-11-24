@@ -1,0 +1,120 @@
+{
+ "summary": {
+  "char_acc_mean": 0.974,
+  "char_acc_min": 0.889,
+  "mel_db_mean": 0.0,
+  "mel_db_max": 0.0,
+  "bit_exact": true,
+  "self_seed_mel_db_mean": 2.443
+ },
+ "rows": [
+  {
+   "wav": "傲娇_s1234.wav",
+   "asr": "哼,我才不是特意在等你呢,只是刚好路过而已。",
+   "char_acc": 1.0,
+   "sha": "87388cb4d385528f",
+   "mel_db": 0.0,
+   "same_as_champion": true,
+   "dur_ratio": 1.0
+  },
+  {
+   "wav": "傲娇_s5678.wav",
+   "asr": "哼,我才不是特意在等你呢,只是刚好路过而已。",
+   "char_acc": 1.0,
+   "sha": "ff5c9f3941f31f84",
+   "mel_db": 0.0,
+   "same_as_champion": true,
+   "dur_ratio": 1.0
+  },
+  {
+   "wav": "委屈_s1234.wav",
+   "asr": "你又不理我了,人家等了你好久好久的。",
+   "char_acc": 1.0,
+   "sha": "4605b8563e772e8a",
+   "mel_db": 0.0,
+   "same_as_champion": true,
+   "dur_ratio": 1.0
+  },
+  {
+   "wav": "委屈_s5678.wav",
+   "asr": "你又不理我了,人家等了你好久好久的。",
+   "char_acc": 1.0,
+   "sha": "142a34f3b3c63b65",
+   "mel_db": 0.0,
+   "same_as_champion": true,
+   "dur_ratio": 1.0
+  },
+  {
+   "wav": "撒娇_s1234.wav",
+   "asr": "哎呀,你就再陪我玩一会儿嘛,就一小会儿,好不好嘛?",
+   "char_acc": 1.0,
+   "sha": "7eb8176b6a0726e8",
+   "mel_db": 0.0,
+   "same_as_champion": true,
+   "dur_ratio": 1.0
+  },
+  {
+   "wav": "撒娇_s5678.wav",
+   "asr": "哎呀,你就再陪我玩一会儿嘛,就一小会儿,好不好嘛。",
+   "char_acc": 1.0,
+   "sha": "01ba62fee5c1cb66",
+   "mel_db": 0.0,
+   "same_as_champion": true,
+   "dur_ratio": 1.0
+  },
+  {
+   "wav": "播报_s1234.wav",
+   "asr": "今天下午3点,北京的气温是18度,晚上会有小雨,出门记得带伞。",
+   "char_acc": 0.889,
+   "sha": "ae6ee47b40b8d812",
+   "mel_db": 0.0,
+   "same_as_champion": true,
+   "dur_ratio": 1.0
+  },
+  {
+   "wav": "播报_s5678.wav",
+   "asr": "今天下午3点,北京的气温是18度,晚上会有小雨,出门记得带伞。",
+   "char_acc": 0.889,
+   "sha": "25465750390f3a82",
+   "mel_db": 0.0,
+   "same_as_champion": true,
+   "dur_ratio": 1.0
+  },
+  {
+   "wav": "说明_s1234.wav",
+   "asr": "这个程序先把权重读进内存,再一句一句的合成语音。",
+   "char_acc": 0.955,
+   "sha": "85e72cda067ef2ab",
+   "mel_db": 0.0,
+   "same_as_champion": true,
+   "dur_ratio": 1.0
+  },
+  {
+   "wav": "说明_s5678.wav",
+   "asr": "这个程序先把权重读进内存,再一句一句的合成语音。",
+   "char_acc": 0.955,
+   "sha": "a3fec6c0b40bf77d",
+   "mel_db": 0.0,
+   "same_as_champion": true,
+   "dur_ratio": 1.0
+  },
+  {
+   "wav": "问候_s1234.wav",
+   "asr": "早上好,昨天睡得怎么样?我给你准备了一杯热咖啡。",
+   "char_acc": 1.0,
+   "sha": "18ddd1a96f7062e2",
+   "mel_db": 0.0,
+   "same_as_champion": true,
+   "dur_ratio": 1.0
+  },
+  {
+   "wav": "问候_s5678.wav",
+   "asr": "早上好,昨天睡得怎么样?我给你准备了一杯热咖啡。",
+   "char_acc": 1.0,
+   "sha": "cce01bda3cc44df5",
+   "mel_db": 0.0,
+   "same_as_champion": true,
+   "dur_ratio": 1.0
+  }
+ ]
+}

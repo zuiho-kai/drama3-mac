@@ -20,7 +20,7 @@ MAN = json.loads((HERE / os.environ.get("D3_MANIFEST", "manifest.json")).read_te
 GB = 1024**3
 KNOBS = {"dense_int8", "wired_limit_gb", "cache_limit_gb", "clear_cache_after_line", "warmup",
          # experts on demand (offload.py)
-         "pin_layers", "slots", "prefetch", "nocache", "lean_head", "codec_bf16", "memory_limit_gb"}
+         "pin_layers", "slots", "prefetch", "nocache", "lean_head", "codec_tile", "memory_limit_gb"}
 
 
 def main() -> None:
@@ -60,7 +60,7 @@ def main() -> None:
         rt, store = offload.load_offloaded(
             model_dir, pin_layers=knobs.get("pin_layers", 0), slots=knobs["slots"], prefetch=knobs.get("prefetch", False), nocache=knobs.get("nocache", True),
             lean_head=knobs.get("lean_head", True), dense_int8=bool(knobs.get("dense_int8")),
-            codec_bf16=bool(knobs.get("codec_bf16")))
+            codec_tile=knobs.get("codec_tile", 64))
     else:
         rt = gen.FishDrama3Runtime.from_dir(model_dir, dense_int8=bool(knobs.get("dense_int8")))
     load_s = time.perf_counter() - t0

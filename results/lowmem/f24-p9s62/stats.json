@@ -1,0 +1,341 @@
+{
+ "id": "f24-p9s62",
+ "build": "int4",
+ "knobs": {
+  "pin_layers": 9,
+  "slots": 62,
+  "cache_limit_gb": 0,
+  "memory_limit_gb": 16
+ },
+ "src": "/Users/zuiho/work/d3repo/drama3-mac/harness/src-base/mlx_speech/__init__.py",
+ "load_s": 0.5,
+ "after_load_active_gb": 10.5,
+ "rss_after_load_gb": 10.79,
+ "lines": [
+  {
+   "name": "撒娇",
+   "seed": 1234,
+   "audio_s": 5.85,
+   "gen_s": 12.024,
+   "frames_s": 11.65,
+   "codec_s": 0.373,
+   "rtf": 2.055,
+   "mlx_peak_gb": 15.9,
+   "rss_peak_gb": 11.73,
+   "experts": {
+    "hits": 23354,
+    "misses": 22772,
+    "hit_rate": 0.5063,
+    "read_gb": 37.527,
+    "read_s": 4.61,
+    "prefetched": 0,
+    "prefetch_hits": 0,
+    "prof": {
+     "eval_ids": 3.263,
+     "fill": 7.239,
+     "calls": 4030
+    }
+   }
+  },
+  {
+   "name": "傲娇",
+   "seed": 1234,
+   "audio_s": 4.64,
+   "gen_s": 6.419,
+   "frames_s": 6.098,
+   "codec_s": 0.321,
+   "rtf": 1.382,
+   "mlx_peak_gb": 15.9,
+   "rss_peak_gb": 11.73,
+   "experts": {
+    "hits": 42717,
+    "misses": 30564,
+    "hit_rate": 0.5829,
+    "read_gb": 50.368,
+    "read_s": 6.38,
+    "prefetched": 0,
+    "prefetch_hits": 0,
+    "prof": {
+     "eval_ids": 5.539,
+     "fill": 10.171,
+     "calls": 7161
+    }
+   }
+  },
+  {
+   "name": "委屈",
+   "seed": 1234,
+   "audio_s": 4.27,
+   "gen_s": 5.813,
+   "frames_s": 5.5,
+   "codec_s": 0.313,
+   "rtf": 1.361,
+   "mlx_peak_gb": 15.9,
+   "rss_peak_gb": 11.73,
+   "experts": {
+    "hits": 61030,
+    "misses": 37389,
+    "hit_rate": 0.6201,
+    "read_gb": 61.615,
+    "read_s": 7.92,
+    "prefetched": 0,
+    "prefetch_hits": 0,
+    "prof": {
+     "eval_ids": 7.604,
+     "fill": 12.791,
+     "calls": 10044
+    }
+   }
+  },
+  {
+   "name": "播报",
+   "seed": 1234,
+   "audio_s": 6.46,
+   "gen_s": 8.561,
+   "frames_s": 8.115,
+   "codec_s": 0.446,
+   "rtf": 1.326,
+   "mlx_peak_gb": 15.9,
+   "rss_peak_gb": 11.73,
+   "experts": {
+    "hits": 87682,
+    "misses": 47462,
+    "hit_rate": 0.6488,
+    "read_gb": 78.215,
+    "read_s": 10.24,
+    "prefetched": 0,
+    "prefetch_hits": 0,
+    "prof": {
+     "eval_ids": 10.746,
+     "fill": 16.551,
+     "calls": 14384
+    }
+   }
+  },
+  {
+   "name": "说明",
+   "seed": 1234,
+   "audio_s": 4.74,
+   "gen_s": 6.392,
+   "frames_s": 6.052,
+   "codec_s": 0.34,
+   "rtf": 1.349,
+   "mlx_peak_gb": 15.9,
+   "rss_peak_gb": 11.73,
+   "experts": {
+    "hits": 107613,
+    "misses": 54932,
+    "hit_rate": 0.6621,
+    "read_gb": 90.525,
+    "read_s": 11.95,
+    "prefetched": 0,
+    "prefetch_hits": 0,
+    "prof": {
+     "eval_ids": 13.038,
+     "fill": 19.427,
+     "calls": 17577
+    }
+   }
+  },
+  {
+   "name": "问候",
+   "seed": 1234,
+   "audio_s": 4.6,
+   "gen_s": 6.087,
+   "frames_s": 5.731,
+   "codec_s": 0.355,
+   "rtf": 1.324,
+   "mlx_peak_gb": 15.9,
+   "rss_peak_gb": 11.73,
+   "experts": {
+    "hits": 126886,
+    "misses": 62212,
+    "hit_rate": 0.671,
+    "read_gb": 102.522,
+    "read_s": 13.57,
+    "prefetched": 0,
+    "prefetch_hits": 0,
+    "prof": {
+     "eval_ids": 15.229,
+     "fill": 22.138,
+     "calls": 20677
+    }
+   }
+  },
+  {
+   "name": "撒娇",
+   "seed": 5678,
+   "audio_s": 5.99,
+   "gen_s": 7.752,
+   "frames_s": 7.323,
+   "codec_s": 0.428,
+   "rtf": 1.294,
+   "mlx_peak_gb": 15.9,
+   "rss_peak_gb": 11.73,
+   "experts": {
+    "hits": 152084,
+    "misses": 71379,
+    "hit_rate": 0.6806,
+    "read_gb": 117.629,
+    "read_s": 15.63,
+    "prefetched": 0,
+    "prefetch_hits": 0,
+    "prof": {
+     "eval_ids": 18.098,
+     "fill": 25.482,
+     "calls": 24707
+    }
+   }
+  },
+  {
+   "name": "傲娇",
+   "seed": 5678,
+   "audio_s": 4.88,
+   "gen_s": 6.608,
+   "frames_s": 6.274,
+   "codec_s": 0.334,
+   "rtf": 1.355,
+   "mlx_peak_gb": 15.9,
+   "rss_peak_gb": 11.73,
+   "experts": {
+    "hits": 172398,
+    "misses": 79460,
+    "hit_rate": 0.6845,
+    "read_gb": 130.946,
+    "read_s": 17.45,
+    "prefetched": 0,
+    "prefetch_hits": 0,
+    "prof": {
+     "eval_ids": 20.452,
+     "fill": 28.492,
+     "calls": 27993
+    }
+   }
+  },
+  {
+   "name": "委屈",
+   "seed": 5678,
+   "audio_s": 4.55,
+   "gen_s": 6.034,
+   "frames_s": 5.678,
+   "codec_s": 0.356,
+   "rtf": 1.326,
+   "mlx_peak_gb": 15.9,
+   "rss_peak_gb": 11.73,
+   "experts": {
+    "hits": 191887,
+    "misses": 86597,
+    "hit_rate": 0.689,
+    "read_gb": 142.707,
+    "read_s": 19.06,
+    "prefetched": 0,
+    "prefetch_hits": 0,
+    "prof": {
+     "eval_ids": 22.605,
+     "fill": 31.175,
+     "calls": 31062
+    }
+   }
+  },
+  {
+   "name": "播报",
+   "seed": 5678,
+   "audio_s": 6.27,
+   "gen_s": 8.558,
+   "frames_s": 8.084,
+   "codec_s": 0.473,
+   "rtf": 1.365,
+   "mlx_peak_gb": 15.9,
+   "rss_peak_gb": 11.73,
+   "experts": {
+    "hits": 217540,
+    "misses": 96677,
+    "hit_rate": 0.6923,
+    "read_gb": 159.319,
+    "read_s": 21.43,
+    "prefetched": 0,
+    "prefetch_hits": 0,
+    "prof": {
+     "eval_ids": 25.705,
+     "fill": 34.93,
+     "calls": 35278
+    }
+   }
+  },
+  {
+   "name": "说明",
+   "seed": 5678,
+   "audio_s": 4.69,
+   "gen_s": 6.248,
+   "frames_s": 5.881,
+   "codec_s": 0.367,
+   "rtf": 1.332,
+   "mlx_peak_gb": 15.9,
+   "rss_peak_gb": 11.73,
+   "experts": {
+    "hits": 237556,
+    "misses": 103814,
+    "hit_rate": 0.6959,
+    "read_gb": 171.08,
+    "read_s": 23.05,
+    "prefetched": 0,
+    "prefetch_hits": 0,
+    "prof": {
+     "eval_ids": 27.96,
+     "fill": 37.683,
+     "calls": 38440
+    }
+   }
+  },
+  {
+   "name": "问候",
+   "seed": 5678,
+   "audio_s": 4.55,
+   "gen_s": 6.229,
+   "frames_s": 5.879,
+   "codec_s": 0.35,
+   "rtf": 1.369,
+   "mlx_peak_gb": 15.9,
+   "rss_peak_gb": 11.73,
+   "experts": {
+    "hits": 256577,
+    "misses": 111098,
+    "hit_rate": 0.6978,
+    "read_gb": 183.084,
+    "read_s": 24.72,
+    "prefetched": 0,
+    "prefetch_hits": 0,
+    "prof": {
+     "eval_ids": 30.162,
+     "fill": 40.501,
+     "calls": 41509
+    }
+   }
+  }
+ ],
+ "ref_s": 0.2,
+ "summary": {
+  "load_s": 0.5,
+  "peak_gb": 15.9,
+  "rss_peak_gb": 11.73,
+  "first_line_s": 12.024,
+  "warm_rtf": 1.3426,
+  "warm_gen_s_mean": 6.791,
+  "frames_share": 0.949,
+  "codec_share": 0.051,
+  "experts": {
+   "hits": 256577,
+   "misses": 111098,
+   "hit_rate": 0.6978,
+   "read_gb": 183.084,
+   "read_s": 24.72,
+   "prefetched": 0,
+   "prefetch_hits": 0,
+   "prof": {
+    "eval_ids": 30.162,
+    "fill": 40.501,
+    "calls": 41509
+   }
+  }
+ }
+}

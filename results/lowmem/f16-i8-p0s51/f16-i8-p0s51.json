@@ -1,0 +1,1 @@
+{"id":"f16-i8-p0s51","build":"int4","knobs":{"pin_layers":0,"slots":51,"dense_int8":true,"cache_limit_gb":0,"memory_limit_gb":10.7},"src":"src-base"}

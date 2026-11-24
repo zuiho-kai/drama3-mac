@@ -10,6 +10,10 @@ LRU cache with a byte budget. On a real small Mac that job is done by the OS pag
 cache; here the budget stands in for it, and with nocache=True every miss is read
 with F_NOCACHE so the 128 GB test machine's page cache cannot help.
 
+Byte-for-byte check: offloaded runs give the same codes as the resident model
+(prefill builds a temporary [256, ...] layer so gather_qmm runs the resident shapes;
+decode rows are unsorted and per-expert, so slot order does not matter).
+
 lean_head: lm_head keeps only the rows sampling can draw (eos + the semantic band),
 and token embeddings are looked up from a memory map of the shard. Both give
 the same numbers as the resident tensors.
@@ -206,19 +210,23 @@ class OffloadedExperts(nn.Module):
             lut = np.zeros(256, np.uint32)
             for e in uniq:
                 lut[e] = self._slot_of[e]
-        else:  # prefill: resident slots + the missing experts, at their own indices
+        else:  # prefill: one temporary [256, ...] layer, each routed expert at its own
+            # index (gather_qmm then runs the resident shapes, so rounding is identical);
+            # unused rows repeat a routed one; the slots are left alone.
             have = [e for e in uniq if e in self._slot_of]
             miss = [e for e in uniq if e not in self._slot_of]
             r.hits += len(have); r.misses += len(miss)
             new = r.read(self._L, miss)
-            pos = {e: j for j, e in enumerate(miss)}
             n0 = self._S if self._pool is not None else 0
-            src = {e: (self._slot_of[e] if e in self._slot_of else n0 + pos[e]) for e in uniq}
-            # full [256, ...] layer with each expert at its own index (unused ones are
-            # a copy of some routed expert): gather_qmm then runs the resident shapes.
+            src = {e: self._slot_of[e] for e in have}
+            src.update({e: n0 + j for j, e in enumerate(miss)})
             perm = mx.array([src.get(e, src[uniq[0]]) for e in range(256)], dtype=mx.uint32)
-            tensors = [(mx.concatenate([self._pool[i], new[i]]) if self._pool is not None else new[i])[perm]
-                       for i in range(9)]
+            tensors = []
+            for i in range(9):
+                both = mx.concatenate([self._pool[i], new[i]]) if self._pool is not None else new[i]
+                tensors.append(both[perm])
+                mx.eval(tensors[-1])  # free each concatenation before the next
+            del new
             lut = np.arange(256, dtype=np.uint32)
         local = mx.array(lut[ids_np])
         r.prof["eval_ids"] += t1 - t0; r.prof["fill"] += time.perf_counter() - t1; r.prof["calls"] += 1
@@ -254,7 +262,7 @@ class MappedEmbedding(nn.Module):
 
 def load_offloaded(model_dir, *, pin_layers: int, slots: int, prefetch: bool = False,
                    nocache: bool = True,
-                   lean_head: bool = True, dense_int8: bool = False, codec_bf16: bool = False):
+                   lean_head: bool = True, dense_int8: bool = False, codec_tile: int = 64):
     from mlx_speech.checkpoints.sharded import load_state_dict
     from mlx_speech.generation.fish_drama_3 import FishDrama3Runtime, Tokenizer
     from mlx_speech.models.fish_drama_3.config import FishDrama3Config
@@ -310,12 +318,11 @@ def load_offloaded(model_dir, *, pin_layers: int, slots: int, prefetch: bool = F
         nn.quantize(model, group_size=DENSE_INT8_GROUP_SIZE, bits=8, mode="affine",
                     class_predicate=is_dense_int8_target)
     mx.eval(model.parameters())
+    # The codec decodes in time tiles with a halo (exact, see its Decoder): 64-step
+    # tiles give the same samples as 256 and cut the decode peak from 3.5 to 1.8 GB.
+    from mlx_speech.models.fish_s2_pro import codec_model
+    codec_model.Decoder.TILE_STEPS = codec_tile
     codec = FishS2Codec.from_dir(model_dir / "codec-mlx")
-    if codec_bf16:
-        codec.model.update(nn.utils.tree_map(
-            lambda a: a.astype(mx.bfloat16) if isinstance(a, mx.array) and a.dtype == mx.float32 else a,
-            codec.model.parameters()))
-        mx.eval(codec.model.parameters())
     rt = FishDrama3Runtime(model=model,
                            tokenizer=Tokenizer.from_file(str(model_dir / "tokenizer.json")),
                            codec=codec)

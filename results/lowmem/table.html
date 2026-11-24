@@ -1,0 +1,26 @@
+<html><head><meta charset="utf-8"><style>
+body{margin:0;background:#0f1115;font-family:"PingFang SC","Hiragino Sans GB",sans-serif;color:#e8e8ea}
+.card{width:1600px;padding:64px 72px;box-sizing:border-box}
+h1{font-size:54px;margin:0 0 10px;font-weight:800;letter-spacing:1px}
+h1 em{font-style:normal;color:#ff8a3d}
+.sub{font-size:28px;color:#9aa0aa;margin-bottom:44px}
+table{width:100%;border-collapse:separate;border-spacing:0 14px;font-size:34px}
+th{color:#8b919c;font-weight:500;text-align:left;padding:0 24px;font-size:26px}
+td{background:#191c23;padding:30px 24px}
+tr td:first-child{border-radius:16px 0 0 16px;font-weight:800;font-size:44px}
+tr td:last-child{border-radius:0 16px 16px 0}
+.hot td{background:#2a1c12} .hot td:first-child{color:#ff8a3d}
+.big{font-weight:700} .dim{color:#9aa0aa;font-size:26px}
+.foot{margin-top:30px;font-size:24px;color:#7c828c;line-height:1.6}
+</style></head><body><div class="card">
+<h1>Drama 3 在 Mac 上：原来要 48G，现在 <em>16G 就能跑</em></h1>
+<div class="sub">专家按需从硬盘读，常用的留在内存 · 同一台 M5 Max 实测，同样 12 句台词</div>
+<table>
+<tr><th>内存</th><th>放法</th><th>峰值内存</th><th>1 秒音频要</th><th>第一句出完</th><th>念字准</th></tr>
+<tr class="hot"><td>16G</td><td>专家全放硬盘<br><span class="dim">每层留 51 个常用的</span></td><td class="big">10.2G</td><td class="big">1.8 秒</td><td>16.0 秒</td><td>97.4%</td></tr>
+<tr class="hot"><td>24G</td><td>前 13 层全在内存<br><span class="dim">其余按需读</span></td><td class="big">15.1G</td><td class="big">1.16 秒</td><td>10.4 秒</td><td>97.4%</td></tr>
+<tr class="hot"><td>32G</td><td>前 24 层全在内存<br><span class="dim">其余按需读</span></td><td class="big">21.0G</td><td class="big">0.78 秒</td><td>6.6 秒</td><td>97.4%</td></tr>
+<tr><td>48G+</td><td>全部放内存<br><span class="dim">原来的四位版</span></td><td class="big">29.5G</td><td class="big">0.47 秒</td><td>3.0 秒</td><td>97.4%</td></tr>
+</table>
+<div class="foot">峰值都压在 macOS 默认给显卡的上限内（约内存的 2/3）；读硬盘绕开系统缓存，模拟小内存机器。测试机硬盘约 7GB/s，硬盘更慢的机器会再慢一些。<br>16G、24G 档另把注意力层压成 8 位；不压也能跑：16G 峰值 10.7G、1 秒音频 2.25 秒，24G 峰值 15.9G、1.34 秒。</div>
+</div></body></html>
