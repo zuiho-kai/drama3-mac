@@ -18,7 +18,9 @@ import os
 # D3_MANIFEST 可换台词组（如 stress.json），默认冻结的 manifest.json
 MAN = json.loads((HERE / os.environ.get("D3_MANIFEST", "manifest.json")).read_text())
 GB = 1024**3
-KNOBS = {"dense_int8", "wired_limit_gb", "cache_limit_gb", "clear_cache_after_line", "warmup"}
+KNOBS = {"dense_int8", "wired_limit_gb", "cache_limit_gb", "clear_cache_after_line", "warmup",
+         # experts on demand (offload.py)
+         "pin_layers", "slots", "prefetch", "nocache", "lean_head", "codec_bf16", "memory_limit_gb"}
 
 
 def main() -> None:
@@ -37,6 +39,8 @@ def main() -> None:
 
     if knobs.get("wired_limit_gb"):
         mx.set_wired_limit(int(knobs["wired_limit_gb"] * GB))
+    if knobs.get("memory_limit_gb"):
+        mx.set_memory_limit(int(knobs["memory_limit_gb"] * GB))
     if knobs.get("cache_limit_gb") is not None:
         mx.set_cache_limit(int(knobs["cache_limit_gb"] * GB))
 
@@ -49,7 +53,16 @@ def main() -> None:
     gen.FishDrama3Runtime.generate_frames = gf
 
     t0 = time.perf_counter()
-    rt = gen.FishDrama3Runtime.from_dir(model_dir, dense_int8=bool(knobs.get("dense_int8")))
+    store = None
+    if knobs.get("slots") is not None:
+        sys.path.insert(0, str(HERE))
+        import offload
+        rt, store = offload.load_offloaded(
+            model_dir, pin_layers=knobs.get("pin_layers", 0), slots=knobs["slots"], prefetch=knobs.get("prefetch", False), nocache=knobs.get("nocache", True),
+            lean_head=knobs.get("lean_head", True), dense_int8=bool(knobs.get("dense_int8")),
+            codec_bf16=bool(knobs.get("codec_bf16")))
+    else:
+        rt = gen.FishDrama3Runtime.from_dir(model_dir, dense_int8=bool(knobs.get("dense_int8")))
     load_s = time.perf_counter() - t0
     codec_decode = rt.codec.decode
 
@@ -86,6 +99,8 @@ def main() -> None:
                    "rtf": round(el / max(dur, 1e-3), 3),
                    "mlx_peak_gb": round(mx.get_peak_memory() / GB, 2),
                    "rss_peak_gb": round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / GB, 2)}
+            if store is not None:
+                row["experts"] = store.stats()
             stats["lines"].append(row)
             print(json.dumps(row, ensure_ascii=False), flush=True)
     L = stats["lines"]
@@ -101,6 +116,9 @@ def main() -> None:
         "frames_share": round(sum(r["frames_s"] for r in L) / sum(r["gen_s"] for r in L), 3),
         "codec_share": round(sum(r["codec_s"] for r in L) / sum(r["gen_s"] for r in L), 3),
     }
+    if store is not None:
+        stats["summary"]["experts"] = store.stats()
+        (out / "trace.json").write_text(json.dumps(store.trace))
     (out / "stats.json").write_text(json.dumps(stats, ensure_ascii=False, indent=1))
     print("SUMMARY", json.dumps(stats["summary"]), flush=True)
 
